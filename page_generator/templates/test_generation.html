@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/new_labels.js' %}" defer></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Dynamic Form</title>
+</head>
+<body class="bg-gray-200 p-8">
+    <form id="dynamic-form" class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md" method="post" >
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="request-type" class="block text-gray-700 text-sm font-bold mb-2">Выберите тип запроса:</label>
+            <select id="request-type" name="requestType" class="w-full p-2 border border-gray-300 rounded-md">
+                <option value="POST">POST запрос</option>
+                <option value="GET">GET запрос</option>
+                <option value="PUT">PUT запрос</option>
+                <option value="DELETE">DELETE запрос</option>
+            </select>
+        </div>
+        <button type="button" onclick="addNewField()" class="bg-blue-500 text-white px-4 py-2 mb-4 rounded-md mr-2">Добавить поле</button>
+
+        <button type="button" onclick="removeLastField()" class="bg-red-500 text-white px-4 py-2 rounded-md mr-2">Удалить последнее поле</button>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md mb-4">Отправить</button>
+    </form>
+</body>
+</html>

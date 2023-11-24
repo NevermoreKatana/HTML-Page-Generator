@@ -1,0 +1,17 @@
+{% load api_docs_tag %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Html Page Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+{% include 'header.html' %}
+<main class="px-4 py-6 space-y-6 min-h-screen bg-gray-900 text-white">
+    {% autoescape off %}
+        {% render_api_docs answer %}
+    {% endautoescape %}
+  </main>
+</section>
+</html>
+
